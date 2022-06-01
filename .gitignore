@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+*.ipch
+*.opendb
+*.db-wal
+*.db-shm
+*.db
+TextAdventure/.vs/TextAdventure/v17/.suo
