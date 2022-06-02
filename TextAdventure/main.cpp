@@ -22,6 +22,8 @@ int main()
 		{
 			if (greenforest())
 				std::cout << "\n***Congrats, you have beaten the Green Forest!!" << std::endl;
+			else
+				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
 			break;
 		}
 		case 2:
@@ -41,8 +43,8 @@ int main()
 
 
 
-
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	system("Pause");
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	return 0;
 

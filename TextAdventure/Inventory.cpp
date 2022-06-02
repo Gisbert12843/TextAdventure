@@ -1,25 +1,31 @@
 #include "Inventory.h"
 #include <vector>
 
-bool Inventory::addNewItemToInventory(Object* p_Object_to_be_added)
+bool Inventory::addNewItemToInventory(Object* p_addedObject)
 {
 	if (current_size = max_size)
 		return false;
 	else
 	{
-		inventoryvector.push_back(p_Object_to_be_added);
-		p_Object_to_be_added->setLocation(this);
+		inventory_map[p_addedObject->getUniqueID()] = p_addedObject;
+		p_addedObject->setLocation(this);
 		return true;
 	}
 }
 
-bool Inventory::removeItemFromInventory(Object* p_Object_to_be_removed)
+bool Inventory::removeItemFromInventory(Object* p_removedObject)
 {
-	for (int i = 0; i < this->current_size; i++)
-	{
-		if (inventoryvector.at(i) == p_Object_to_be_removed)
-			inventoryvector.erase(inventoryvector.begin()+i);
-	}
+	if (this->inventory_map.erase(p_removedObject->getUniqueID()))
 		return true;
+	else
+		return false;
+	//THIS STILL NEEDS A NEW LOCATION TO RELOCATE THE DROPPED OBJECT
+}
 
+bool Inventory::hasItem(Object* p_searchedObject)
+{
+	if (inventory_map.count(p_searchedObject->getUniqueID()) != false)
+		return true;
+	else
+		return false;
 }
