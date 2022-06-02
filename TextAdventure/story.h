@@ -1,3 +1,3 @@
 #pragma once
 
-bool greenforest();
+bool greenforest ();

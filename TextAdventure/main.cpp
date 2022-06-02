@@ -4,10 +4,9 @@
 #include "story.h"
 
 
-int main()
-{
+int main () {
 	std::cout << "Welcome to this awesome Text Adventure\n" << std::endl;
-	while (true)
+	while ( true )
 	{
 
 		std::cout << "Choose a Mode please!" << std::endl;
@@ -16,11 +15,11 @@ int main()
 
 		unsigned mode = 0;
 		std::cin >> mode;
-		switch (mode)
+		switch ( mode )
 		{
 		case 1:
 		{
-			if (greenforest())
+			if ( greenforest () )
 				std::cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << std::endl;
 			else
 				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
@@ -43,7 +42,7 @@ int main()
 
 
 
-	system("Pause");
+	system ("Pause");
 	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	return 0;
