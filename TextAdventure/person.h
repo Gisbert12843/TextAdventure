@@ -13,15 +13,21 @@ private:
 	char gender;
 	date birthdate;
 	int age;
+	double height;
 
 public:
-	person (string pName,char pGender, string pBirthdate)
+	person (string pName, char pGender, double pHeight, string pBirthdate)
 	{
 		name = pName;
 		gender = pGender;
 		birthdate = getDateAsDateObj (pBirthdate);
+		height = pHeight;
 	}
 
-	int getCurrentAge (date pCurrentDate, date pBirthDate);
+	string getName () { return name; }
+	char getGender () { return gender; }
+	string getBirthdate () { getDateAsString (birthdate); }
+	double getHeight () { return height; }
 
+	int getCurrentAge (date pCurrentDate, date pBirthDate);
 };

@@ -35,10 +35,10 @@ int main () {
 			else
 				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
 			break;*/
-			
-			date testDate (2,6,2022);
-			
-			std::cout << getDateAsString (getCurrentDate());
+			date test1(2,6,2022);
+			string test2(getDateAsString(test1));
+			date test3(getDateAsDateObj(test2));
+			std::cout << getDateAsString (test3);
 		}
 		case 2:
 		{
