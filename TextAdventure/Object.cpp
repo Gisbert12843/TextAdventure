@@ -13,3 +13,4 @@ Object::Object (std::string p_name, double p_weight, double p_width, double p_he
 	object_name = p_name, weight = p_weight, width = p_width, height = p_height, length = p_length;
 	unique_id = createUniqueID (p_name, p_weight * 100, p_width * 100, p_height * 100, p_length * 100);
 }
+

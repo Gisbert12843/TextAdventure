@@ -1,8 +1,12 @@
 #include "date.h"
+#include <string>
+
+
+
 string getDateAsString (date pDate) // Format: "Day.Month.Year"
 {
 	string output = "";
-	output = pDate.getDateDay () + '.' + pDate.getDateMonth () + '.' + pDate.getDateYear ();
+	output = std::to_string(pDate.getDateDay ()) + '.' + std::to_string(pDate.getDateMonth ()) + '.' + std::to_string(pDate.getDateYear ());
 	return output;
 }
 
@@ -40,4 +44,17 @@ date getDateAsDateObj (string pDateString)
 	}
 	Year = stoi (current);
 	date outputDate (Day, Month, Year);
+	return outputDate;
+}
+date getCurrentDate ()
+{
+	
+	struct tm newtime;
+	time_t now = time (0);
+	localtime_s (&newtime, &now);
+	int Month = 1 + newtime.tm_mon;
+	int Day = newtime.tm_mday;
+	int Year = newtime.tm_year + 1900;
+	date currentDate (Day,Month,Year);
+	return currentDate;
 }

@@ -41,5 +41,4 @@ public:
 		return 0;
 	}
 	Object (std::string p_name = "", double p_weight = 0, double p_width = 0, double p_height = 0, double p_length = 0, int p_uniqueID = NULL);
-
 };

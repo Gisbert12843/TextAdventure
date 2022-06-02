@@ -1,7 +1,18 @@
 #include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <Windows.h>
+#include <stdio.h>
+#include <fstream>
+
+
 #include "Object.h"
 #include "Inventory.h"
 #include "story.h"
+#include "date.h"
+#include "person.h"
+
+
 
 
 int main () {
@@ -19,11 +30,15 @@ int main () {
 		{
 		case 1:
 		{
-			if ( greenforest () )
+			/*if ( greenforest () )
 				std::cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << std::endl;
 			else
 				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
-			break;
+			break;*/
+			
+			date testDate (2,6,2022);
+			
+			std::cout << getDateAsString (getCurrentDate());
 		}
 		case 2:
 		{

@@ -48,3 +48,11 @@ TextAdventure/.vs/TextAdventure/v17/.suo
 TextAdventure/TextAdventure.vcxproj.filters
 TextAdventure/TextAdventure.vcxproj
 *.vcxproj
+*.recipe
+*.log
+*.tlog
+*.pdb
+*.txt
+*.idb
+*.ilk
+TextAdventure.rar
