@@ -36,3 +36,8 @@
 *.db-shm
 *.db
 TextAdventure/.vs/TextAdventure/v17/.suo
+
+*.vcxproj
+*.sln
+*.filters
+*.user
