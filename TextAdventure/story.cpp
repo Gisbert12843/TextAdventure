@@ -7,14 +7,14 @@
 #endif
 #include "Inventory.h"
 #include "Object.h"
-#include<ios> //used to get stream size
-#include<limits> //used to get numeric limits
 
 #define sleep Sleep(500);
-#define text(a) std::cout << a; std::cin.ignore();
+#define text(a) std::cout << a; std::cin.get();
 bool greenforest()
 {
 	system("cls");
+	std::cin.ignore();
+
 	text("You see nothing but white when you first wake up.")
 	text("It seems to be the first sunlight of the day, flooding your eyes.")
 	text("It seems they haven't seen much other than darkness for quite some time.")
@@ -22,7 +22,5 @@ bool greenforest()
 	text("You grab the knife thats laying on the floor and put it into you backpack.")
 
 
-
-	std::cin.ignore('\n');
 	return true;
 }

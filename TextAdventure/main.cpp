@@ -21,7 +21,7 @@ int main()
 		case 1:
 		{
 			if (greenforest())
-				std::cout << "\n***Congrats, you have beaten the Green Forest!!" << std::endl;
+				std::cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << std::endl;
 			else
 				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
 			break;
@@ -37,7 +37,7 @@ int main()
 		default:
 			break;
 		}
-
+		break;
 	}
 
 
