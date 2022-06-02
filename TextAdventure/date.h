@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 
-#define string std::string
 
 
 class date {
@@ -38,6 +37,6 @@ public:
 };
 
 date getDateAsDateObj (int pDay, int pMonth, int pYear);
-date getDateAsDateObj (string pDateString);
-string getDateAsString (date pDate);
+date getDateAsDateObj (std::string pDateString);
+std::string getDateAsString (date pDate);
 date getCurrentDate ();

@@ -10,7 +10,6 @@ string getDateAsString(date pDate) // Format: "Day.Month.Year"
 	return output;
 }
 
-
 date getDateAsDateObj(int pDay, int pMonth, int pYear)
 {
 	date outputDate(pDay, pMonth, pYear);
