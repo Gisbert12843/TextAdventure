@@ -12,7 +12,7 @@
 #define text(a) std::cout << a; std::cin.get();
 bool greenforest()
 {
-	system("cls");
+	system("cls"); 
 	std::cin.ignore();
 
 	text("You see nothing but white when you first wake up.")
