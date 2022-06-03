@@ -3,73 +3,62 @@
 
 
 
-string getDateAsString(date pDate) // Format: "Day.Month.Year"
+string getDateAsString (date pDate) // Format: "Day.Month.Year"
 {
 	string output = "";
-	output = std::to_string(pDate.getDateDay()) + '.' + std::to_string(pDate.getDateMonth()) + '.' + std::to_string(pDate.getDateYear());
+	output = std::to_string(pDate.getDateDay ()) + '.' + std::to_string(pDate.getDateMonth ()) + '.' + std::to_string(pDate.getDateYear ());
 	return output;
 }
 
+<<<<<<< HEAD
 date getDateAsDateObj(int pDay, int pMonth, int pYear)
+=======
+
+date getDateAsDateObj (int pDay, int pMonth, int pYear)
+>>>>>>> parent of ebfccf6 (0.21)
 {
-	date outputDate(pDay, pMonth, pYear);
+	date outputDate (pDay, pMonth, pYear);
 	return outputDate;
 }
-date getDateAsDateObj(string pDateString)
+date getDateAsDateObj (string pDateString)
 {
-	int Day = 0, Month = 0, Year = 0, mode = 1; //Mode beschreibt den Status ob grade für den Tag,Monat oder Jahr gesammelt wird
+	int Day = 0, Month = 0, Year = 0, mode = 1;
 	string current = "";
-	for ( char c : pDateString ) //Iteration durch den String
+	for ( char c : pDateString )
 	{
-		if ( c == '.' )//Check auf . im String
+		if ( c == '.' )
 		{
-
-			switch ( mode )
-			{
-			case 1:
-				Day = stoi(current);
-				current = "";
-				break;
-			case 2:
-				Month = stoi(current);
-				current = "";
-				break;
-			default:
-				break;
-			}
 			mode++;
-			continue;
+			current = "";
 		}
 		switch ( mode )
 		{
 		case 1:
-			current.push_back(c);
-			break;
+			current = current + c;
 		case 2:
-			current.push_back(c);
-			break;
+			Day = stoi (current);
+			current = current + c;
 		case 3:
-			current.push_back(c);
-			break;
+			Month = stoi (current);
+			current = current + c;
 
 		default:
 			break;
 		}
 	}
-	Year = stoi(current);
-
-	date outputDate(Day, Month, Year);
+	Year = stoi (current);
+	date outputDate (Day, Month, Year);
 	return outputDate;
 }
-date getCurrentDate()
+date getCurrentDate ()
 {
-
+	
 	struct tm newtime;
-	time_t now = time(0);
-	localtime_s(&newtime, &now);
+	time_t now = time (0);
+	localtime_s (&newtime, &now);
 	int Month = 1 + newtime.tm_mon;
 	int Day = newtime.tm_mday;
 	int Year = newtime.tm_year + 1900;
-	date currentDate(Day, Month, Year);
+	date currentDate (Day,Month,Year);
 	return currentDate;
 }

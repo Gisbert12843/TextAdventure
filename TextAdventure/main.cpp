@@ -34,8 +34,16 @@ int main () {
 				std::cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << std::endl;
 			else
 				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
+<<<<<<< HEAD
 			break;
 
+=======
+			break;*/
+			
+			date testDate (2,6,2022);
+			
+			std::cout << getDateAsString (getCurrentDate());
+>>>>>>> parent of ebfccf6 (0.21)
 		}
 		case 2:
 		{

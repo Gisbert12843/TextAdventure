@@ -14,6 +14,7 @@ private:
 	char gender;
 	date birthdate;
 	int age;
+<<<<<<< HEAD
 	double height;
 	double weight;
 	std::vector<Inventory> ownedInventories ={};
@@ -31,10 +32,16 @@ public:
 		std::cout << "Congrats, you successfully created a Ghost." << std::endl;
 	}
 	person (std::string pName, char pGender, double pHeight, double pWeight, std::string pBirthdate)
+=======
+
+public:
+	person (string pName,char pGender, string pBirthdate)
+>>>>>>> parent of ebfccf6 (0.21)
 	{
 		name = pName;
 		gender = pGender;
 		birthdate = getDateAsDateObj (pBirthdate);
+<<<<<<< HEAD
 		height = pHeight;
 		weight = pWeight;
 		std::string nameOfInv = "Trouses";
@@ -47,5 +54,10 @@ public:
 	std::string getBirthdate () { getDateAsString (birthdate); }
 	double getHeight () { return height; }
 
+=======
+	}
+
+>>>>>>> parent of ebfccf6 (0.21)
 	int getCurrentAge (date pCurrentDate, date pBirthDate);
+
 };
