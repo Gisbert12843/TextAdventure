@@ -10,7 +10,7 @@
 #include "decisionInput.h"
 
 #define sleep Sleep(100);
-#define text(a) std::cout << a;  std::cin.get();sleep;
+#define text(a) std::cout << a;  std::cin.get();sleep
 
 bool greenforest()
 {
@@ -28,6 +28,7 @@ bool greenforest()
 	text("It appears to be a knife. Not in the best condition, but it feels somewhat sturdy.");
 	text("Are you taking the Knife with you?");
 	text("You grab the knife thats laying on the floor and put it into you backpack.");
+
 
 
 	return true;

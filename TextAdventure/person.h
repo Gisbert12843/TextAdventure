@@ -7,7 +7,7 @@
 #define string std::string
 
 
-class person {
+class Person {
 private:
 	string name;
 	char gender;
@@ -16,7 +16,7 @@ private:
 	double height;
 
 public:
-	person (string pName, char pGender, double pHeight, string pBirthdate)
+	Person (string pName, char pGender, double pHeight, string pBirthdate)
 	{
 		name = pName;
 		gender = pGender;
@@ -26,8 +26,9 @@ public:
 
 	string getName () { return name; }
 	char getGender () { return gender; }
-	string getBirthdate () { getDateAsString (birthdate); }
+	string getBirthdate () { return getDateAsString (birthdate); }
 	double getHeight () { return height; }
+	void takeObject(Object pObjToBeTaken) { ; }
 
-	int getCurrentAge (date pCurrentDate, date pBirthDate);
+	int getCurrentAge(date pBirthDate, date pCurrentDate = getCurrentDate());
 };

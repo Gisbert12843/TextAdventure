@@ -1,7 +1,8 @@
-#include "person.h"
+#include "Person.h"
 
-int person::getCurrentAge(date pCurrentDate, date pBirthDate)
+int Person::getCurrentAge(date pBirthDate, date pCurrentDate)
 {
+	pBirthDate = this->birthdate;
 	int returnvalue = 0;
 	int month_difference = pCurrentDate.getDateMonth() - pBirthDate.getDateMonth();
 

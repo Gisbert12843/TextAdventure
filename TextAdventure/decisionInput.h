@@ -8,13 +8,13 @@
 #include "Object.h"
 #include "decisionInput.h"
 #include "date.h"
-#include "person.h"
+#include "Person.h"
 
 using std::cout; using std::endl;
 
 namespace decision
 {
-	bool takeObject(Object &pObjToBeTaken, person pWhoTakesIt)
+	bool takeObject(Object &pObjToBeTaken, Person pWhoTakesIt)
 	{
 		cout << "Yes = y | No = n" << endl;
 		string decision = "";
@@ -30,7 +30,10 @@ namespace decision
 			if ( decision == "y" || decision == "yes" )
 			{
 				cout << "You are taking the " << pObjToBeTaken.getName() << endl;
+				pObjToBeTaken.setLocation(pWhoTakesIt.)
 				return true;
 			}
+			else
+				takeObject(pObjToBeTaken, pWhoTakesIt);
 	}
 }

@@ -10,7 +10,7 @@
 #include "Inventory.h"
 #include "story.h"
 #include "date.h"
-#include "person.h"
+#include "Person.h"
 
 using std::cout; using std::endl;
 
@@ -74,7 +74,16 @@ int main()
 
 			//Test for Person Functions
 			cout << "\nStart Person Function Test" << endl;
-			 
+			Person testPerson("Karl", 'm', 182, "1.1.2000");
+			cout << "Karl, 'm', 182, 1.1.2000" << endl;
+			cout << testPerson.getName() << endl;
+			cout << testPerson.getGender() << endl;
+			cout << testPerson.getHeight() << endl;
+			cout << testPerson.getBirthdate() << endl;
+			cout << testPerson.getCurrentAge(getDateAsDateObj(testPerson.getBirthdate())) << endl;
+
+			//Test for Decision Functions
+			cout << "\nStart Decision Function Test" << endl;
 
 			continue;
 		}
