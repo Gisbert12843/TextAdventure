@@ -4,7 +4,8 @@
 #include "date.h"
 #include <ctime> 
 
-#define string std::string
+using std::string;
+
 
 
 class Person {
@@ -28,7 +29,7 @@ public:
 	char getGender () { return gender; }
 	string getBirthdate () { return getDateAsString (birthdate); }
 	double getHeight () { return height; }
-	void takeObject(Object pObjToBeTaken) { ; }
+	//void takeObject(Object pObjToBeTaken) { ; }
 
 	int getCurrentAge(date pBirthDate, date pCurrentDate = getCurrentDate());
 };

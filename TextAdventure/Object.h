@@ -3,11 +3,13 @@
 #include <string>
 #include <algorithm>
 
+using std::string;
+
 class Inventory;
 
 class Object {								//Generic Object Declaration
 private:
-	std::string object_name;
+	string object_name;
 	int unique_id;
 	double weight;
 	double width;
@@ -15,10 +17,10 @@ private:
 	double length;
 	Inventory *located_in = nullptr;		//The Container the Object is located in
 
-	int createUniqueID(std::string p_object_name, double p_weight, double p_width, double p_height, double p_length);
+	int createUniqueID(string p_object_name, double p_weight, double p_width, double p_height, double p_length);
 
 public:
-	std::string getName()
+	string getName()
 	{
 		return object_name;
 	}
@@ -51,5 +53,5 @@ public:
 		located_in = p_new_Location;
 		return 0;
 	}
-	Object(std::string p_name = "", double p_weight = 0, double p_width = 0, double p_height = 0, double p_length = 0, int p_uniqueID = 0);
+	Object(string p_name = "", double p_weight = 0, double p_width = 0, double p_height = 0, double p_length = 0, int p_uniqueID = 0);
 };

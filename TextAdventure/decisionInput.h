@@ -10,6 +10,8 @@
 #include "date.h"
 #include "Person.h"
 
+using std::string;
+
 using std::cout; using std::endl;
 
 namespace decision
@@ -30,7 +32,7 @@ namespace decision
 			if ( decision == "y" || decision == "yes" )
 			{
 				cout << "You are taking the " << pObjToBeTaken.getName() << endl;
-				pObjToBeTaken.setLocation(pWhoTakesIt.)
+				//pObjToBeTaken.setLocation(pWhoTakesIt.)
 				return true;
 			}
 			else

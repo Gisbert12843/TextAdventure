@@ -2,7 +2,8 @@
 #include <iostream>
 #include <string>
 
-#define string std::string
+using std::string;
+
 
 
 class date {
