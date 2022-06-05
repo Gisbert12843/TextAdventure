@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <fstream>
-
+#include <string>
 
 #include "Object.h"
 #include "Inventory.h"
@@ -12,16 +12,18 @@
 #include "date.h"
 #include "person.h"
 
+using std::cout; using std::endl;
 
 
 
-int main () {
-	std::cout << "Welcome to this awesome Text Adventure\n" << std::endl;
+int main()
+{
+	cout << "Welcome to this awesome Text Adventure\n" << endl;
 	while ( true )
 	{
 
-		std::cout << "Choose a Mode please!" << std::endl;
-		std::cout << "1: Start in a green forest.\n2: Start in an empty city.\n3: Start on the frontlines." << std::endl;
+		cout << "\n\nChoose a Mode please!" << endl;
+		cout << "1: Start in a green forest.\n2: Function Tests.\n3: EXIT" << endl;
 
 
 		unsigned mode = 0;
@@ -30,28 +32,55 @@ int main () {
 		{
 		case 1:
 		{
-			if ( greenforest () )
-				std::cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << std::endl;
+			if ( greenforest() )
+				cout << "\n***Congrats, you have beaten the Green Forest!!***\n" << endl;
 			else
-				std::cout << "\n***Sadly the Green Forest got you good. :(" << std::endl;
-<<<<<<< HEAD
+				cout << "\n***Sadly the Green Forest got you good. :(" << endl;
 			break;
 
-=======
-			break;*/
-			
-			date testDate (2,6,2022);
-			
-			std::cout << getDateAsString (getCurrentDate());
->>>>>>> parent of ebfccf6 (0.21)
+
 		}
 		case 2:
 		{
-			break;
+			//Test for Date Functions
+			cout << "\nStart Date Function Test" << endl;
+			date test1 = getCurrentDate();
+			string test2(getDateAsString(test1));
+			date test3(getDateAsDateObj(test2));
+			cout << getDateAsString(test3) << endl;
+
+			//Test for Object Functions
+			cout << "\nStart Object Function Test" << endl;
+
+			Object testObject("WoodenKnife", 0.5, 5, 3, 18);
+			cout << testObject.getName() << endl;
+			cout << testObject.getUniqueID() << endl;
+			cout << testObject.getWeight() << endl;
+			cout << testObject.getWidth() << endl;
+			cout << testObject.getHeight() << endl;
+			cout << testObject.getLength() << endl;
+
+			//Test for Inventory Functions
+			cout << "\nStart Inventory Function Test" << endl;
+
+			Inventory testInventory("Trouses", 20);
+			testInventory.addNewItemToInventory(&testObject);
+			if ( testInventory.hasItem(&testObject) && testObject.getLocation()==&testInventory )
+				cout << "Has Object!" << endl;
+			else
+			{
+				cout << "Doesn't have Object :(" << endl;
+			}
+
+			//Test for Person Functions
+			cout << "\nStart Person Function Test" << endl;
+			 
+
+			continue;
 		}
 		case 3:
 		{
-			break;
+			return 0;
 		}
 		default:
 			break;
@@ -62,7 +91,7 @@ int main () {
 
 
 
-	system ("Pause");
+	system("Pause");
 	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 	return 0;

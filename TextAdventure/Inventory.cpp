@@ -2,7 +2,7 @@
 #include <vector>
 
 bool Inventory::addNewItemToInventory (Object *p_addedObject) {
-	if ( current_size = max_size )
+	if ( current_size == max_size )
 		return false;
 	else
 	{

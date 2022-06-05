@@ -14,10 +14,10 @@ using std::cout; using std::endl;
 
 namespace decision
 {
-	bool takeObject(Object pObjToBeTaken, person pWhoTakesIt)
+	bool takeObject(Object &pObjToBeTaken, person pWhoTakesIt)
 	{
 		cout << "Yes = y | No = n" << endl;
-		std::string decision = "";
+		string decision = "";
 		std::getline(std::cin, decision);
 		std::transform(decision.begin(), decision.end(), decision.begin(),
 			[](unsigned char c) { return std::tolower(c); });
@@ -27,10 +27,10 @@ namespace decision
 			return false;
 		}
 		else
-		if ( decision == "y" || decision == "yes" )
-		{
-			cout << "You are taking the " << pObjToBeTaken.getName() << endl;
-			//pObjToBeTaken.setLocation(pWhoTakesIt.);
-		}
+			if ( decision == "y" || decision == "yes" )
+			{
+				cout << "You are taking the " << pObjToBeTaken.getName() << endl;
+				return true;
+			}
 	}
 }
