@@ -2,9 +2,13 @@
 #include <string>
 #include <iostream>
 #include "date.h"
-#include <ctime> 
+#include <ctime>
+#include <vector>
 
-using std::string;
+#include "Object.h"
+#include "Inventory.h"
+
+using std::string; using std::vector;
 
 
 
@@ -15,6 +19,7 @@ private:
 	date birthdate;
 	int age;
 	double height;
+
 
 public:
 	Person (string pName, char pGender, double pHeight, string pBirthdate)

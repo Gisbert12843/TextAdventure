@@ -60,17 +60,7 @@ int main()
 			cout << testObject.getHeight() << endl;
 			cout << testObject.getLength() << endl;
 
-			//Test for Inventory Functions
-			cout << "\nStart Inventory Function Test" << endl;
-
-			Inventory testInventory("Trouses", 20);
-			testInventory.addNewItemToInventory(&testObject);
-			if ( testInventory.hasItem(&testObject) && testObject.getLocation()==&testInventory )
-				cout << "Has Object!" << endl;
-			else
-			{
-				cout << "Doesn't have Object :(" << endl;
-			}
+			
 
 			//Test for Person Functions
 			cout << "\nStart Person Function Test" << endl;
@@ -82,6 +72,24 @@ int main()
 			cout << testPerson.getBirthdate() << endl;
 			cout << testPerson.getCurrentAge(getDateAsDateObj(testPerson.getBirthdate())) << endl;
 
+			//Test for Inventory Functions
+			cout << "\nStart Inventory Function Test" << endl;
+			//Person testPerson("Heinz", 'm', 181, "1.1.2001");
+			Inventory testInventory(&testPerson, "aTestInventory");
+			cout << "aTestInventory, 100, 0, Karl" << endl;
+			cout << testInventory.getName() << endl;
+			cout << testInventory.getMaxSize() << endl;
+			cout << testInventory.getCurrentSize() << endl;
+			cout << testInventory.getOwner()->getName() << endl;
+
+
+			testInventory.addNewItemToInventory(&testObject);
+			if ( testInventory.hasItem(&testObject) && testObject.getLocation() == &testInventory )
+				cout << "Has Object!" << endl;
+			else
+			{
+				cout << "Doesn't have Object :(" << endl;
+			}
 			//Test for Decision Functions
 			cout << "\nStart Decision Function Test" << endl;
 
