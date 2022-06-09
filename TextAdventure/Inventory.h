@@ -27,6 +27,7 @@ public:
 	Inventory(Person *p_owner = nullptr, string p_name = "", int p_max_size = 100);
 	~Inventory() { ; }
 
+	void setOwner(Person *pNewOwner) { owner = pNewOwner; }
 	bool addNewItemToInventory(Object* p_addedObject);
 	bool removeItemFromInventory(Object* p_removedObject);
 	bool hasItem(Object* p_searchedObject);

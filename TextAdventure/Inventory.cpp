@@ -13,16 +13,21 @@ bool Inventory::addNewItemToInventory (Object *p_addedObject) {
 	{
 		inventory_map[p_addedObject->getUniqueID ()] = p_addedObject;
 		p_addedObject->setLocation (this);
+		this->current_size++;
 		return true;
 	}
 }
 
 bool Inventory::removeItemFromInventory (Object *p_removedObject) {
 	if ( this->inventory_map.erase (p_removedObject->getUniqueID ()) )
+	{
+		p_removedObject->setLocation(nullptr);
 		return true;
+	}
 	else
-		return false;
-	//THIS STILL NEEDS A NEW LOCATION TO RELOCATE THE DROPPED OBJECT
+	{
+		return false;		
+	}//THIS STILL NEEDS A NEW LOCATION TO RELOCATE THE DROPPED OBJECT
 }
 
 bool Inventory::hasItem (Object *p_searchedObject) {
@@ -31,4 +36,3 @@ bool Inventory::hasItem (Object *p_searchedObject) {
 	else
 		return false;
 }
-

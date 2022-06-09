@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits>
 
 #include "Inventory.h"
 #include "Object.h"
@@ -19,8 +20,9 @@ using std::cout; using std::endl; using std::cin;
 
 namespace decisionInput
 {
-	
-	bool takeObject(Object pObjToBeTaken, Person pWhoTakesIt);
+
+	bool takeObject(Object &pObjToBeTaken, Person &pWhoTakesIt);
+	bool removeObject(Object &pObjToBeRemoved, Person &pWhoRemovesIt);
 
 	string inputName(string displaytext);
 	string inputDate(string displaytext);
@@ -28,5 +30,5 @@ namespace decisionInput
 	char inputChar(string displaytext);
 
 	bool createPlayerCharacter(Person **pPlayerCharacter);
-	
+
 }
