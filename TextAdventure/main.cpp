@@ -11,6 +11,7 @@
 #include "story.h"
 #include "date.h"
 #include "Person.h"
+#include "decisionInput.h"
 
 using std::cout; using std::endl;
 
@@ -43,15 +44,17 @@ int main()
 		case 2:
 		{
 			//Test for Date Functions
-			cout << "\nStart Date Function Test" << endl;
+			cout << "\n\nStart Date Function Test" << endl;
+			cout << "Today is: ";
 			date test1 = getCurrentDate();
 			string test2(getDateAsString(test1));
 			date test3(getDateAsDateObj(test2));
 			cout << getDateAsString(test3) << endl;
 
-			//Test for Object Functions
-			cout << "\nStart Object Function Test" << endl;
 
+
+			//Test for Object Functions
+			cout << "\n\nStart Object Function Test" << endl;
 			Object testObject("WoodenKnife", 0.5, 5, 3, 18);
 			cout << testObject.getName() << endl;
 			cout << testObject.getUniqueID() << endl;
@@ -63,26 +66,25 @@ int main()
 			
 
 			//Test for Person Functions
-			cout << "\nStart Person Function Test" << endl;
+			cout << "\n\nStart Person Function Test" << endl;
 			Person testPerson("Karl", 'm', 182, "1.1.2000");
 			cout << "Karl, 'm', 182, 1.1.2000" << endl;
-			cout << testPerson.getName() << endl;
-			cout << testPerson.getGender() << endl;
-			cout << testPerson.getHeight() << endl;
-			cout << testPerson.getBirthdate() << endl;
+			cout << testPerson.getName() << ", ";
+			cout << testPerson.getGender() << ", ";
+			cout << testPerson.getHeight() << ", ";
+			cout << testPerson.getBirthdate() << ", ";
 			cout << testPerson.getCurrentAge(getDateAsDateObj(testPerson.getBirthdate())) << endl;
 
+
+
 			//Test for Inventory Functions
-			cout << "\nStart Inventory Function Test" << endl;
-			//Person testPerson("Heinz", 'm', 181, "1.1.2001");
+			cout << "\n\nStart Inventory Function Test" << endl;
 			Inventory testInventory(&testPerson, "aTestInventory");
 			cout << "aTestInventory, 100, 0, Karl" << endl;
-			cout << testInventory.getName() << endl;
-			cout << testInventory.getMaxSize() << endl;
-			cout << testInventory.getCurrentSize() << endl;
+			cout << testInventory.getName() << ", ";
+			cout << testInventory.getMaxSize() << ", ";
+			cout << testInventory.getCurrentSize() << ", ";
 			cout << testInventory.getOwner()->getName() << endl;
-
-
 			testInventory.addNewItemToInventory(&testObject);
 			if ( testInventory.hasItem(&testObject) && testObject.getLocation() == &testInventory )
 				cout << "Has Object!" << endl;
@@ -90,8 +92,16 @@ int main()
 			{
 				cout << "Doesn't have Object :(" << endl;
 			}
+
+
+
 			//Test for Decision Functions
-			cout << "\nStart Decision Function Test" << endl;
+			//cout << "\nStart Decision Function Test" << endl;
+			//char testChar = 'm';
+			//char compareChar;
+			//compareChar = decision::inputChar("Please input a 'm'.");
+			//if ( testChar == compareChar )
+			//	cout << "decision worked!";
 
 			continue;
 		}

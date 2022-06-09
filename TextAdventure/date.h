@@ -16,7 +16,6 @@ public:
 		day = 0;
 		month = 0;
 		year = 0;
-		//std::cout << "Dafuq you assigning an empty date?";
 	};
 	date (int pDay, int pMonth, int pYear)
 	{

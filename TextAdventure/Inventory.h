@@ -9,6 +9,7 @@
 
 class Object;
 class Person;
+
 class Inventory {											//High_Level summary of Inventory Items
 private:
 	string name = "";									//Name of the inventory
@@ -25,6 +26,8 @@ public:
 
 	Inventory(Person *p_owner=nullptr, string p_name="", int p_max_size=100)
 	{ name = p_name, max_size = p_max_size, owner = p_owner; }
+	~Inventory() { ; }
+
 	bool addNewItemToInventory(Object* p_addedObject);
 	bool removeItemFromInventory(Object* p_removedObject);
 	bool hasItem(Object* p_searchedObject);

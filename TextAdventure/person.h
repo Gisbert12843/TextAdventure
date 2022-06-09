@@ -11,6 +11,7 @@
 using std::string; using std::vector;
 
 
+class Inventory;
 
 class Person {
 private:
@@ -19,22 +20,24 @@ private:
 	date birthdate;
 	int age;
 	double height;
-
+	Inventory *ownedInventory = nullptr;
 
 public:
-	Person (string pName, char pGender, double pHeight, string pBirthdate)
+	Person(string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr)
 	{
 		name = pName;
 		gender = pGender;
-		birthdate = getDateAsDateObj (pBirthdate);
+		birthdate = getDateAsDateObj(pBirthdate);
 		height = pHeight;
+		ownedInventory = pInventory;
 	}
-
+	Inventory *getInventory() { return ownedInventory; }
 	string getName () { return name; }
 	char getGender () { return gender; }
 	string getBirthdate () { return getDateAsString (birthdate); }
 	double getHeight () { return height; }
-	//void takeObject(Object pObjToBeTaken) { ; }
+	
 
 	int getCurrentAge(date pBirthDate, date pCurrentDate = getCurrentDate());
 };
+
