@@ -1,2 +1,2 @@
 # TextAdventure
-Are you able to survive those 3 scenarios?!
+Are you able to survive the green forest?!
