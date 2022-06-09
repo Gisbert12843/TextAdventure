@@ -97,7 +97,7 @@ int main()
 			cout << "\nStart Decision Function Test" << endl;
 			char testChar = 'm';
 			char compareChar;
-			compareChar = decision::inputChar("Please input a 'm'.");
+			compareChar = decisionInput::inputChar("Please input a 'm'.");
 			if ( testChar == compareChar )
 				cout << "decision worked!" << endl;
 			else cout << "decision didnt work." << endl;

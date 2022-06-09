@@ -1,10 +1,12 @@
 #include <iostream>
-#include "story.h"
+
 #ifdef _WIN32
 #include <Windows.h>
 #else
 #include <unistd.h>
 #endif
+
+#include "story.h"
 #include "Inventory.h"
 #include "Object.h"
 #include "decisionInput.h"
@@ -17,8 +19,8 @@ bool greenforest()
 {
 	system("cls");
 	std::cin.ignore();
-	//Person *player =nullptr;
-	//manager::createNewPerson(&player,decision::nameSomething(),)
+	Person *playerCharacter =nullptr;
+	decisionInput::createPlayerCharacter(&playerCharacter);
 	text("You see nothing but white when you first wake up.");
 	text("It seems to be the first sunlight of the day, flooding your eyes.");
 	text("It seems they haven't seen much other than darkness for quite some time.");
@@ -30,7 +32,6 @@ bool greenforest()
 	text("It appears to be a knife. Not in the best condition, but it feels somewhat sturdy.");
 	text("Are you taking the Knife with you?");
 
-	//if(decision::takeObject() )
 	text("You grab the knife thats laying on the floor and put it into you backpack.");
 
 

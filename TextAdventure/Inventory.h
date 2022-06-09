@@ -12,10 +12,10 @@ class Person;
 
 class Inventory {											//High_Level summary of Inventory Items
 private:
-	string name = "";									//Name of the inventory
+	string name = "";									    //Name of the inventory
 	std::unordered_map<int, Object *> inventory_map;	    //The Inventory based on a hashmap of Pointers to Objects of the 'Object-Class'
 	int max_size;											//Maximum Size of this inventory
-	int current_size = 0;										//Current amount of Objects stored in this Inventory
+	int current_size = 0;									//Current amount of Objects stored in this Inventory
 	Person *owner;
 
 public:
@@ -24,8 +24,7 @@ public:
 	int getCurrentSize() { return current_size; }
 	Person *getOwner() { return owner; }
 
-	Inventory(Person *p_owner=nullptr, string p_name="", int p_max_size=100)
-	{ name = p_name, max_size = p_max_size, owner = p_owner; }
+	Inventory(Person *p_owner = nullptr, string p_name = "", int p_max_size = 100);
 	~Inventory() { ; }
 
 	bool addNewItemToInventory(Object* p_addedObject);

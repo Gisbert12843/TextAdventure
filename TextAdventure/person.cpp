@@ -1,5 +1,8 @@
 #include "Person.h"
 
+
+
+
 int Person::getCurrentAge(date pBirthDate, date pCurrentDate)
 {
 	pBirthDate = this->birthdate;
@@ -20,4 +23,14 @@ int Person::getCurrentAge(date pBirthDate, date pCurrentDate)
 	else
 		returnvalue = pCurrentDate.getDateYear() - pBirthDate.getDateYear();
 	return returnvalue;
+}
+
+Person::Person(string pName, char pGender, double pHeight, string pBirthdate, Inventory *pInventory)
+{
+	name = pName;
+	gender = pGender;
+	birthdate = getDateAsDateObj(pBirthdate);
+	height = pHeight;
+	ownedInventory = pInventory;
+	age = getCurrentAge(this->birthdate, getCurrentDate());
 }

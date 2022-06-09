@@ -23,14 +23,7 @@ private:
 	Inventory *ownedInventory = nullptr;
 
 public:
-	Person(string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr)
-	{
-		name = pName;
-		gender = pGender;
-		birthdate = getDateAsDateObj(pBirthdate);
-		height = pHeight;
-		ownedInventory = pInventory;
-	}
+	
 	Inventory *getInventory() { return ownedInventory; }
 	string getName () { return name; }
 	char getGender () { return gender; }
@@ -39,5 +32,8 @@ public:
 	
 
 	int getCurrentAge(date pBirthDate, date pCurrentDate = getCurrentDate());
+	Person(string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr);
+
 };
+
 

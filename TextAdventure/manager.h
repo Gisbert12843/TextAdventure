@@ -7,12 +7,9 @@
 
 namespace manager
 {
-	bool createNewPerson(Person **pNewPerson, string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr)
-	{
-		*pNewPerson = new Person(pName, pGender, pHeight, pBirthdate, pInventory);
-		return true;
-	}
+	Person **createNewPerson(Person **pNewPerson, string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr);
 
+	Inventory **createNewInventory(Inventory **pNewInventory, Person *p_owner = nullptr, string p_name = "", int p_max_size = 100);
 
 	
 

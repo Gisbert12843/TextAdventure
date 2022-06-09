@@ -1,6 +1,11 @@
 #include "Inventory.h"
 #include <vector>
 
+Inventory::Inventory(Person *p_owner, string p_name, int p_max_size)
+{
+	name = p_name, max_size = p_max_size, owner = p_owner;
+}
+
 bool Inventory::addNewItemToInventory (Object *p_addedObject) {
 	if ( current_size == max_size )
 		return false;
@@ -26,3 +31,4 @@ bool Inventory::hasItem (Object *p_searchedObject) {
 	else
 		return false;
 }
+

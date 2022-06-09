@@ -3,24 +3,28 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include "Inventory.h"
 #include "Object.h"
 #include "decisionInput.h"
 #include "date.h"
 #include "Person.h"
+#include "manager.h"
 
 using std::string;
 
-using std::cout; using std::endl;
+using std::cout; using std::endl; using std::cin;
 
-namespace decision
+namespace decisionInput
 {
 	
 	bool takeObject(Object pObjToBeTaken, Person pWhoTakesIt);
 
 	string inputName(string displaytext);
-	int inputValue(string displaytext);
+	string inputDate(string displaytext);
+	double inputValue(string displaytext);
 	char inputChar(string displaytext);
 
 	bool createPlayerCharacter(Person **pPlayerCharacter);
