@@ -89,19 +89,18 @@ int main()
 			if ( testInventory.hasItem(&testObject) && testObject.getLocation() == &testInventory )
 				cout << "Has Object!" << endl;
 			else
-			{
 				cout << "Doesn't have Object :(" << endl;
-			}
 
 
 
 			//Test for Decision Functions
-			//cout << "\nStart Decision Function Test" << endl;
-			//char testChar = 'm';
-			//char compareChar;
-			//compareChar = decision::inputChar("Please input a 'm'.");
-			//if ( testChar == compareChar )
-			//	cout << "decision worked!";
+			cout << "\nStart Decision Function Test" << endl;
+			char testChar = 'm';
+			char compareChar;
+			compareChar = decision::inputChar("Please input a 'm'.");
+			if ( testChar == compareChar )
+				cout << "decision worked!" << endl;
+			else cout << "decision didnt work." << endl;
 
 			continue;
 		}
