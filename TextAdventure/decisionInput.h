@@ -9,7 +9,6 @@
 
 #include "Inventory.h"
 #include "Object.h"
-#include "decisionInput.h"
 #include "date.h"
 #include "Person.h"
 #include "manager.h"
@@ -31,4 +30,5 @@ namespace decisionInput
 
 	bool createPlayerCharacter(Person **pPlayerCharacter);
 
+	Object *craftObject(string craftedObject);
 }

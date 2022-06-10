@@ -11,10 +11,10 @@ class Object {								//Generic Object Declaration
 private:
 	string object_name = "";
 	int unique_id = 0;
-	double weight = 0;
-	double width = 0;
-	double height = 0;
-	double length = 0;
+	double weight = 0;						//in kg
+	double width = 0;						//in cm
+	double height = 0;						//in cm
+	double length = 0;						//in cm
 	Inventory *located_in = nullptr;		//The Container the Object is located in
 
 	int createUniqueID(string p_object_name, double p_weight, double p_width, double p_height, double p_length);

@@ -19,6 +19,7 @@ using std::cout; using std::endl;
 
 int main()
 {
+	srand(time(NULL));
 	cout << "Welcome to this awesome Text Adventure\n" << endl;
 	while ( true )
 	{
@@ -101,6 +102,13 @@ int main()
 			if ( testChar == compareChar )
 				cout << "decision worked!" << endl;
 			else cout << "decision didnt work." << endl;
+
+			//Test for Manager Functions
+			cout << "\nStart Manager Function Test" << endl;
+			cout << manager::random(1, 2) << endl;
+			for(int i = 0; i < 20; i++)
+			cout << manager::chooseRarity() << endl;
+
 
 			continue;
 		}

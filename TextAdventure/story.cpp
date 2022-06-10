@@ -7,24 +7,31 @@
 #endif
 
 #include "story.h"
-#include "Inventory.h"
+//#include "Inventory.h"
 #include "Object.h"
 #include "decisionInput.h"
 #include "manager.h"
 
-#define sleep Sleep(100);
-#define text(a) std::cout << a;  std::cin.get();sleep
+
+#define waitingDots sleep500; cout << "."; sleep1000; cout << "."; sleep1000; cout << "."; sleep1000 cout << endl;
+
+#define sleep100 Sleep(100);
+#define sleep300 Sleep(300);
+#define sleep500 Sleep(500);
+#define sleep1000 Sleep(1000);
+#define text(a) std::cout << a; std::cin.get();sleep500
 
 bool greenforest()
 {
 	system("cls");
 	std::cin.ignore();
-	//Person *playerCharacter =nullptr;
-	Person *testPerson = nullptr;
-	manager::createNewPerson(&testPerson,"Karl", 'm', 182, "1.1.2000");
+	Person* playerCharacter = nullptr;
+	Person* testPerson = nullptr;
+	manager::createNewPerson(&testPerson, "Karl", 'm', 182, "1.1.2000");
 	//decisionInput::createPlayerCharacter(&testPerson);
+
 	system("cls");
-	std::cin.ignore();
+	/*waitingDots;
 	text("You see nothing but white when you first wake up.");
 	text("It seems to be the first sunlight of the day, flooding your eyes.");
 	text("It seems they haven't seen much other than darkness for quite some time.");
@@ -34,10 +41,10 @@ bool greenforest()
 	text("You don't seem hurt. Atleast you don't feel any pain at the moment.");
 	text("As you take a quick look around, you see something shiny sticking in the dirt right there at your feet.");
 	text("It appears to be a knife. Not in the best condition, but it feels somewhat sturdy.");
-	text("Are you taking the Knife with you?");
-	Object *woodenKnife;
+	text("Are you taking the Knife with you?");*/
+	Object* woodenKnife;
 	manager::createNewObject(&woodenKnife, "WoodenKnife", 0.3, 6, 5, 16);
-	if ( decisionInput::takeObject(*woodenKnife, *testPerson) )
+	if (decisionInput::takeObject(*woodenKnife, *testPerson))
 	{
 		text("You grab the knife thats laying on the floor and put it into you backpack.");
 	}
@@ -45,6 +52,22 @@ bool greenforest()
 	{
 		text("It doesn't feel right to you. You precede, leaving the knife stuck in the mud.")
 	}
+	manager::printInventory(*testPerson);
+
+	Object* newObject = decisionInput::craftObject("baseballbat");
+	testPerson->getInventory()->addNewItemToInventory(newObject);
+
+	Object* newObject = decisionInput::craftObject("baseballbat");
+	testPerson->getInventory()->addNewItemToInventory(newObject);
+
+	Object* newObject = decisionInput::craftObject("baseballbat");
+	testPerson->getInventory()->addNewItemToInventory(newObject);
+
+	Object* newObject = decisionInput::craftObject("baseballbat");
+	testPerson->getInventory()->addNewItemToInventory(newObject);
+
+	manager::printInventory(*testPerson);
+
 
 	cin.ignore();
 	return true;

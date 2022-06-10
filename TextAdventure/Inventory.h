@@ -31,4 +31,6 @@ public:
 	bool addNewItemToInventory(Object* p_addedObject);
 	bool removeItemFromInventory(Object* p_removedObject);
 	bool hasItem(Object* p_searchedObject);
+
+	void printInventory();
 };

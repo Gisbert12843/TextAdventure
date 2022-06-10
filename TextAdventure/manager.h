@@ -3,7 +3,9 @@
 #include "Inventory.h"
 #include "date.h"
 #include "Person.h"
-#include "decisionInput.h"
+//#include "decisionInput.h"
+#include <random>
+
 
 namespace manager
 {
@@ -13,5 +15,12 @@ namespace manager
 
 	Object **createNewObject(Object **pNewObject, string p_name, double p_weight, double p_width, double p_height, double p_length, int p_uniqueID=0);
 
+	void killPerson(Person &pSoonDeadPerson);
+
+	void printInventory(Person &pPerson);
+
+	string chooseRarity();
+
+	double random(double from, double to);
 
 }

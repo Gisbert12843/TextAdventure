@@ -33,7 +33,7 @@ public:
 
 	int getCurrentAge(date pBirthDate, date pCurrentDate = getCurrentDate());
 	Person(string pName = "", char pGender = 'n', double pHeight = 0, string pBirthdate = "1.1.1", Inventory *pInventory = nullptr);
-
+	~Person() { }
 };
 
 

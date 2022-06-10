@@ -8,10 +8,13 @@ namespace decisionInput
 		string decision = "";
 		do //String Input ErrorHandling
 		{
-			cin.clear(); cin.sync();
-			if (decision != "y" && decision != "n")
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 			cin >> decision;
+			if (decision != "y" && decision != "n")
+			{
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				cin.clear(); cin.sync();
+			}
 			std::transform(decision.begin(), decision.end(), decision.begin(),
 				[](unsigned char c) { return std::tolower(c); });
 		} while (decision != "y" && decision != "n");
@@ -25,7 +28,7 @@ namespace decisionInput
 		else
 			if (decision == "y" || decision == "yes")
 			{
-				cout << "You are taking the " << pObjToBeTaken.getName() << endl;
+				cout << "You are taking the " << pObjToBeTaken.getName() << "." << endl;
 
 				if (!pWhoTakesIt.getInventory()->addNewItemToInventory(&pObjToBeTaken))
 				{
@@ -42,12 +45,16 @@ namespace decisionInput
 	{
 		cout << "Yes = y | No = n" << endl;
 		string decision = "";
+
 		do //String Input ErrorHandling
 		{
-			cin.clear(); cin.sync();
-			if (decision != "y" && decision != "n")
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 			cin >> decision;
+			if (decision != "y" && decision != "n")
+			{
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				cin.clear(); cin.sync();
+			}
 			std::transform(decision.begin(), decision.end(), decision.begin(),
 				[](unsigned char c) { return std::tolower(c); });
 		} while (decision != "y" && decision != "n");
@@ -58,9 +65,9 @@ namespace decisionInput
 
 		}
 		else
-			if ( decision == "y" || decision == "yes" )
+			if (decision == "y" || decision == "yes")
 			{
-				
+
 
 				return true;
 			}
@@ -161,4 +168,64 @@ namespace decisionInput
 		manager::createNewPerson(pPlayerCharacter, Name, Gender, Height, Birthdate, Inventory);
 		return true;
 	}
+
+
+	Object *craftObject(string craftedObject = "")
+	{
+		//if (craftedObject == "")
+		//{
+		//	cout << endl << "What do you want to craft?" << endl;
+		//	cout << "{Knife, Baseballbat}";
+		//	do //String Input ErrorHandling
+		//	{
+
+		//		cin >> craftedObject;
+		//		if (craftedObject != "Knife" && craftedObject != "Baseballbat")
+		//		{
+		//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		//			cin.clear(); cin.sync();
+		//		}
+		//		std::transform(craftedObject.begin(), craftedObject.end(), craftedObject.begin(),
+		//			[](unsigned char c) { return std::tolower(c); });
+		//	} while (craftedObject != "Knife" && craftedObject != "Baseballbat");
+		//}
+
+		Object *newObject;
+
+		string chosenrarity = manager::chooseRarity();
+		string name; double weight=0; double width=0; double height = 0; double length=0;
+
+
+		if (chosenrarity == "wooden")
+		{
+			name = "wooden-" + craftedObject;
+			weight = manager::random(0.08, 0.25);
+			width = manager::random(2.5, 4.0);
+			height = manager::random(2.5, 4.0);
+			length = manager::random(12, 18);
+		}
+		else
+			if (chosenrarity == "metallic")
+			{
+				name = "metallic-" + craftedObject;
+				weight = manager::random(0.4, 1.0);
+				width = manager::random(3.0, 5.0);
+				height = manager::random(3.0, 5.0);
+				length = manager::random(15, 23);
+			}
+			else
+			{
+				name = "steel-" + craftedObject;
+				weight = manager::random(0.8, 1.5);
+				width = manager::random(3.5, 5.5);
+				height = manager::random(3.5, 5.5);
+				length = manager::random(18, 30);
+			}
+		cout << "Crafting a " << name << "." << endl;
+		manager::createNewObject(&newObject, name, weight, width, height, length);
+		return newObject;
+	}
+
+
+	//end of namespace
 }
