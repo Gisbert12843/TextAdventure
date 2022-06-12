@@ -170,7 +170,7 @@ namespace decisionInput
 	}
 
 
-	Object *craftObject(string craftedObject = "")
+	Object *craftObject(string craftedObject = "", std::unordered_map<int, bool> *pAllObjectsMap={})
 	{
 		//if (craftedObject == "")
 		//{
@@ -222,7 +222,7 @@ namespace decisionInput
 				length = manager::random(18, 30);
 			}
 		cout << "Crafting a " << name << "." << endl;
-		manager::createNewObject(&newObject, name, weight, width, height, length);
+		manager::createNewObject(&newObject, pAllObjectsMap, name, weight, width, height, length);
 		return newObject;
 	}
 

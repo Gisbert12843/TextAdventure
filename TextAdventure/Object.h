@@ -2,6 +2,7 @@
 #include "Inventory.h"
 #include <string>
 #include <algorithm>
+#include <unordered_map>
 
 using std::string;
 
@@ -17,7 +18,7 @@ private:
 	double length = 0;						//in cm
 	Inventory *located_in = nullptr;		//The Container the Object is located in
 
-	int createUniqueID(string p_object_name, double p_weight, double p_width, double p_height, double p_length);
+	int createUniqueID(string p_object_name, std::unordered_map<int, bool> *pAllObjectsMap, double p_weight, double p_width, double p_height, double p_length);
 
 public:
 	string getName()
@@ -53,5 +54,5 @@ public:
 		located_in = p_new_Location;
 		return 0;
 	}
-	Object(string p_name = "", double p_weight = 0, double p_width = 0, double p_height = 0, double p_length = 0, int p_uniqueID = 0);
+	Object(string p_name = "", std::unordered_map<int, bool> *pAllObjectsMap={}, double p_weight = 0, double p_width = 0, double p_height = 0, double p_length = 0, int p_uniqueID = 0);
 };

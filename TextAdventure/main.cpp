@@ -16,10 +16,14 @@
 using std::cout; using std::endl;
 
 
+#define craft(a) decisionInput::craftObject(a, AllObjectsMap)
+#define addItem(person, item) 	person->getInventory()->addNewItemToInventory(item)
+
 
 int main()
 {
 	srand(time(NULL));
+
 	cout << "Welcome to this awesome Text Adventure\n" << endl;
 	while ( true )
 	{
@@ -44,6 +48,8 @@ int main()
 		}
 		case 2:
 		{
+			std::unordered_map<int, bool>* AllObjectsMap = new std::unordered_map<int, bool>();
+
 			//Test for Date Functions
 			cout << "\n\nStart Date Function Test" << endl;
 			cout << "Today is: ";
@@ -56,7 +62,7 @@ int main()
 
 			//Test for Object Functions
 			cout << "\n\nStart Object Function Test" << endl;
-			Object testObject("WoodenKnife", 0.5, 5, 3, 18);
+			Object testObject("WoodenKnife",AllObjectsMap,  0.5, 5, 3, 18);
 			cout << testObject.getName() << endl;
 			cout << testObject.getUniqueID() << endl;
 			cout << testObject.getWeight() << endl;
@@ -68,19 +74,31 @@ int main()
 
 			//Test for Person Functions
 			cout << "\n\nStart Person Function Test" << endl;
-			Person testPerson("Karl", 'm', 182, "1.1.2000");
+			Person *testPerson = new Person("Karl", 'm', 182, "1.1.2000");
 			cout << "Karl, 'm', 182, 1.1.2000" << endl;
-			cout << testPerson.getName() << ", ";
-			cout << testPerson.getGender() << ", ";
-			cout << testPerson.getHeight() << ", ";
-			cout << testPerson.getBirthdate() << ", ";
-			cout << testPerson.getCurrentAge(getDateAsDateObj(testPerson.getBirthdate())) << endl;
+			cout << testPerson->getName() << ", ";
+			cout << testPerson->getGender() << ", ";
+			cout << testPerson->getHeight() << ", ";
+			cout << testPerson->getBirthdate() << ", ";
+			cout << testPerson->getCurrentAge(getDateAsDateObj(testPerson->getBirthdate())) << endl;
+
+			Object* baseballbatt1 = decisionInput::craftObject("baseballbat", AllObjectsMap);
+			testPerson->getInventory()->addNewItemToInventory(baseballbatt1);
+
+			Object* baseballbatt2 = decisionInput::craftObject("baseballbat", AllObjectsMap);
+			testPerson->getInventory()->addNewItemToInventory(baseballbatt2);
+
+			Object* baseballbatt3 = decisionInput::craftObject("baseballbat", AllObjectsMap);
+			testPerson->getInventory()->addNewItemToInventory(baseballbatt3);
+
+			Object* baseballbatt4 = craft("baseballbat");
+			addItem(testPerson, baseballbatt4);
 
 
 
 			//Test for Inventory Functions
 			cout << "\n\nStart Inventory Function Test" << endl;
-			Inventory testInventory(&testPerson, "aTestInventory");
+			Inventory testInventory(testPerson, "aTestInventory");
 			cout << "aTestInventory, 100, 0, Karl" << endl;
 			cout << testInventory.getName() << ", ";
 			cout << testInventory.getMaxSize() << ", ";

@@ -31,6 +31,13 @@ Person::Person(string pName, char pGender, double pHeight, string pBirthdate, In
 	gender = pGender;
 	birthdate = getDateAsDateObj(pBirthdate);
 	height = pHeight;
-	ownedInventory = pInventory;
+	
+	if (pInventory)
+		ownedInventory = pInventory;
+	else
+	{
+		Inventory* newInventory = new Inventory(this, pName);
+		ownedInventory = newInventory;
+	}
 	age = getCurrentAge(this->birthdate, getCurrentDate());
 }

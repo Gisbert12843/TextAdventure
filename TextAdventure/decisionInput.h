@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits>
+#include <unordered_map>
 
 #include "Inventory.h"
 #include "Object.h"
@@ -30,5 +31,5 @@ namespace decisionInput
 
 	bool createPlayerCharacter(Person **pPlayerCharacter);
 
-	Object *craftObject(string craftedObject);
+	Object *craftObject(string craftedObject, std::unordered_map<int, bool> *pAllObjectsMap);
 }

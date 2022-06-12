@@ -2,6 +2,7 @@
 
 namespace manager
 {
+
 	Person **createNewPerson(Person **pNewPerson, string pName, char pGender, double pHeight, string pBirthdate, Inventory *pInventory)
 	{
 		if (!pInventory)
@@ -26,27 +27,29 @@ namespace manager
 		return pNewInventory;
 	}
 
-	Object **createNewObject(Object **pNewObject, string p_name, double p_weight, double p_width, double p_height, double p_length, int p_uniqueID)
+	Object **createNewObject(Object **pNewObject, std::unordered_map<int, bool> *pAllMap, string p_name, double p_weight, double p_width, double p_height, double p_length, int p_uniqueID)
 	{
-		*pNewObject = new Object(p_name, p_weight, p_width, p_height, p_length);
+		*pNewObject = new Object(p_name,pAllMap, p_weight, p_width, p_height, p_length);
+		
 		return pNewObject;
 	}
 
-	void printInventory(Person &pPerson)
+	void printInventory(Person pPerson)
 	{
 		pPerson.getInventory()->printInventory();
 	}
 
 	string chooseRarity()
 	{
-		int sum_chances = 60 + 30 + 10;
-		int picked = rand() % sum_chances;
+		int wooden_chance = 60, metallic_chance = 30, steel_chance = 10;
+		int sum_chances = wooden_chance+metallic_chance+steel_chance;
+		auto picked = Random::get(0, sum_chances);
 
-		if (picked <= 59)
+		if (picked < wooden_chance)
 		{
 			return "wooden";
 		}
-		else if (picked <= 89)
+		else if (picked < wooden_chance+metallic_chance)
 		{
 			return "metallic";
 		}
