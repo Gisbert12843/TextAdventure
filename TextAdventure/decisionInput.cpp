@@ -1,7 +1,7 @@
 #include "decisionInput.h"
 namespace decisionInput
 {
-	bool takeObject(Object &pObjToBeTaken, Person &pWhoTakesIt)
+	bool takeObject(Object& pObjToBeTaken, Person& pWhoTakesIt)
 	{
 
 		cout << "Yes = y | No = n" << endl;
@@ -41,7 +41,7 @@ namespace decisionInput
 			}
 	}
 
-	bool removeObject(Object &pObjToBeRemoved, Person &pWhoRemovesIt)
+	bool removeObject(Object& pObjToBeRemoved, Person& pWhoRemovesIt)
 	{
 		cout << "Yes = y | No = n" << endl;
 		string decision = "";
@@ -87,33 +87,104 @@ namespace decisionInput
 		}
 		return input;
 	}
-	string inputDate(string displaytext) //Still needs way more errorhandling!
+
+	bool checkStringForBeingDate(string input)
+	{
+		string temp = "";
+		int dotcounter = 0;
+		int numcounter = 0;
+		if (!(input.find_first_not_of("0123456789.") == std::string::npos))
+			return false;
+
+		for (int i = 0; i < input.length(); ++i)
+		{
+
+			if (input.at(i) == '.')
+			{
+
+				dotcounter++;
+
+				if (dotcounter > 2)
+					return false;
+				if (dotcounter == 0)
+				{
+					if ((std::stoi(temp) > 31 || std::stoi(temp) < 1))
+					{
+						return false;
+					}
+				}
+				else if (dotcounter == 1)
+				{
+					if ((std::stoi(temp) > 12 || std::stoi(temp) < 1))
+					{
+						return false;
+					}
+				}
+				numcounter = 0;
+				temp = "";
+				continue;
+			}
+
+
+			temp += input.at(i);
+			numcounter++;
+
+			if (dotcounter == 2)
+			{
+				if (numcounter > 4)
+					return false;
+			}
+			else if ((dotcounter < 2 && numcounter > 2))
+				return false;
+		}
+		
+		if (getDateDifference(getDateAsDateObj(input), getCurrentDate()) > 0)
+		{
+			return false;
+		}
+		else if (getDateDifference(getDateAsDateObj(input), getCurrentDate()) == 0)
+		{
+			if (getDateAsDateObj(input).getDateMonth() - getCurrentDate().getDateMonth() > 0)
+			{
+				return false;
+			}
+			else if (getDateAsDateObj(input).getDateMonth() - getCurrentDate().getDateMonth() == 0 && getDateAsDateObj(input).getDateDay() - getCurrentDate().getDateDay() > 0)
+				return false;
+		}
+
+
+		return true;
+	}
+
+	string inputDate(string displaytext) 
 	{
 		string input = "";
 		cout << displaytext << endl;
 		cin.clear(); cin.sync();
 		std::getline(std::cin, input);
-		while (std::all_of(input.begin(), input.end(), ::isalpha))
+		while (!(checkStringForBeingDate(input)))
 		{
-			cout << "Input may only persist of numbers and dots." << endl;
+			cout << "Input may only persist of numbers and dots and must be a valid date." << endl;
+			cin.clear(); cin.sync();
 			std::getline(std::cin, input);
 		}
 		return input;
 	}
-	double inputValue(string displaytext)
+	double inputValue(string displaytext)//needs a bit more errorhandling
 	{
 		double value;
 		string input = "";
 		cout << displaytext << endl;
 		cin.clear(); cin.sync();
 		std::getline(std::cin >> std::ws, input);
-		while (input.empty() && std::find_if(input.begin(),
-			input.end(), [](char c) { return !(std::isdigit(c) || c == '.');  }) == input.end()) //This validates a string as a working double
+		while (!(input.find_first_not_of("0123456789.") == std::string::npos)) //This validates a string as a working double
 		{
 			cout << "Input may only persist of numbers of the format (x.x)." << endl;
+			cin.clear(); cin.sync();
 			std::getline(std::cin, input);
+
 		}
-		const char *c = input.c_str();
+		const char* c = input.c_str();
 		value = atof(c);
 		return value;
 	}
@@ -132,10 +203,10 @@ namespace decisionInput
 
 
 
-	bool createPlayerCharacter(Person **pPlayerCharacter)
+	bool createPlayerCharacter(Person** pPlayerCharacter)
 	{
 		string Name = ""; char Gender = 'n'; double Height = 0;
-		string Birthdate = getDateAsString(getCurrentDate()); Inventory *Inventory = nullptr;
+		string Birthdate = getDateAsString(getCurrentDate()); Inventory* Inventory = nullptr;
 		int mode = 0;
 
 		switch (mode)
@@ -170,30 +241,12 @@ namespace decisionInput
 	}
 
 
-	Object *craftObject(string craftedObject = "", std::unordered_map<int, bool> *pAllObjectsMap={})
+	Object* craftObject(string craftedObject = "", std::unordered_map<int, bool>* pAllObjectsMap = {})
 	{
-		//if (craftedObject == "")
-		//{
-		//	cout << endl << "What do you want to craft?" << endl;
-		//	cout << "{Knife, Baseballbat}";
-		//	do //String Input ErrorHandling
-		//	{
-
-		//		cin >> craftedObject;
-		//		if (craftedObject != "Knife" && craftedObject != "Baseballbat")
-		//		{
-		//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		//			cin.clear(); cin.sync();
-		//		}
-		//		std::transform(craftedObject.begin(), craftedObject.end(), craftedObject.begin(),
-		//			[](unsigned char c) { return std::tolower(c); });
-		//	} while (craftedObject != "Knife" && craftedObject != "Baseballbat");
-		//}
-
-		Object *newObject;
+		Object* newObject;
 
 		string chosenrarity = manager::chooseRarity();
-		string name; double weight=0; double width=0; double height = 0; double length=0;
+		string name; double weight = 0; double width = 0; double height = 0; double length = 0;
 
 
 		if (chosenrarity == "wooden")

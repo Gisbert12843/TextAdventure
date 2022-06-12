@@ -74,3 +74,25 @@ date getCurrentDate()
 	date currentDate(Day, Month, Year);
 	return currentDate;
 }
+
+
+int getDateDifference(date pEarlyerDate, date pCurrentDate)
+{
+	int returnvalue = 0;
+	int month_difference = pCurrentDate.getDateMonth() - pEarlyerDate.getDateMonth();
+
+	if (month_difference < 0)
+	{
+		returnvalue = pCurrentDate.getDateYear() - pEarlyerDate.getDateYear() - 1;
+	}
+	else if (month_difference == 0)
+	{
+		if (pCurrentDate.getDateDay() < pEarlyerDate.getDateDay())
+		{
+			returnvalue = pCurrentDate.getDateYear() - pEarlyerDate.getDateYear() - 1;
+		}
+	}
+	else
+		returnvalue = pCurrentDate.getDateYear() - pEarlyerDate.getDateYear();
+	return returnvalue;
+}

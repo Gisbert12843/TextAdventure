@@ -29,5 +29,4 @@ namespace manager
 	string chooseRarity();
 
 	double random(double from, double to);
-
 }

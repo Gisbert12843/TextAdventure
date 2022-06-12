@@ -41,3 +41,5 @@ date getDateAsDateObj (int pDay, int pMonth, int pYear);
 date getDateAsDateObj (string pDateString);
 string getDateAsString (date pDate);
 date getCurrentDate ();
+
+int getDateDifference(date pEarlyerDate, date pCurrentDate);

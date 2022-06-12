@@ -39,24 +39,16 @@ bool Inventory::hasItem(Object* p_searchedObject) {
 
 void Inventory::printInventory()
 {
-	std::unordered_map<int, Object*> const& m = this->inventory_map;
+	//std::unordered_map<int, Object*> const& m = this->inventory_map;
 	int i = 0;
 
 	std::cout << std::endl;
 	std::cout << this->getOwner()->getName() << "'s Inventory:" << std::endl;
 	for (auto const& pair : this->inventory_map) {
-		//if (i > 0)
-		//	std::cout << "";
-		std::cout << "{" << pair.first << ": " << pair.second->getName() << "}";
-		//i++;
-		//if (i == 1)
-		//{
-		//	std::cout << std::endl;
-		//	i = 0;
-		//	continue;
-		//}
-		std::cout << std::endl;
 
+		std::cout << "{" << pair.first << ": " << pair.second->getName() << "}";
+
+		std::cout << std::endl;
 
 	}
 }

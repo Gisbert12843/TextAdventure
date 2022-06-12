@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <limits>
 #include <unordered_map>
+#include <string>
+#include <sstream>
 
 #include "Inventory.h"
 #include "Object.h"
